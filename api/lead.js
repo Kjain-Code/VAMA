@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, phone, city, concern, source } = req.body || {};
+    const { name, phone, city, concern, details, source } = req.body || {};
 
     if (!name || !phone) {
       return res.status(400).json({
@@ -20,11 +20,12 @@ export default async function handler(req, res) {
       name: name,
       phone: phone,
       display_name: name,
-      notes: `Preferred clinic: ${city || 'Not specified'} | Concern: ${concern || 'Not specified'}`,
+      notes: `Preferred clinic: ${city || 'Not specified'} | Concern: ${concern || 'Not specified'} | Details: ${details || 'Not specified'}`,
       source: source || 'VAMA Landing Page',
       other_fields: {
         city: city || '',
-        interest: concern || ''
+        interest: concern || '',
+        details: details || ''
       }
     };
 

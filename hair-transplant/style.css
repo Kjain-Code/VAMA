@@ -114,6 +114,22 @@
   }
   .chip svg{width:14px;height:14px;flex-shrink:0;color:var(--teal-dark);}
 
+  /* ===== HERO QUICK-FACT POINTS ===== */
+  .hero-points{
+    display:grid;grid-template-columns:repeat(3,auto);gap:0 30px;margin:24px 0 28px;padding:18px 0;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .hp-item{display:flex;flex-direction:column;padding-right:30px;border-right:1px solid var(--line);}
+  .hp-item:last-child{border-right:none;padding-right:0;}
+  .hp-item .hp-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--teal-deep);line-height:1.15;white-space:nowrap;}
+  .hp-item .hp-lbl{font-size:12px;color:var(--ink-soft);font-weight:600;margin-top:3px;letter-spacing:.01em;white-space:nowrap;}
+  @media(max-width:480px){
+    .hero-points{grid-template-columns:repeat(3,1fr);gap:0 12px;}
+    .hp-item{padding-right:12px;}
+    .hp-item .hp-num{font-size:16.5px;}
+    .hp-item .hp-lbl{font-size:10.5px;white-space:normal;}
+  }
+
   .hero-card-wrap{position:relative;}
   .hero-photo{
     border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);
@@ -140,12 +156,13 @@
   .lead-card p.sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;}
   .field{margin-bottom:13px;}
   .field label{display:block;font-size:12.3px;font-weight:700;color:var(--teal-deep);margin-bottom:6px;letter-spacing:.02em;}
-  .field input, .field select{
+  .field input, .field select, .field textarea{
     width:100%;padding:12.5px 14px;border-radius:var(--radius-sm);border:1.4px solid var(--line);
     font-family:'Manrope',sans-serif;font-size:14.5px;background:var(--cream);color:var(--ink);
     transition:border-color .2s ease, box-shadow .2s ease;
   }
-  .field input:focus, .field select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(20,184,166,.15);background:#fff;}
+  .field textarea{resize:vertical;min-height:76px;line-height:1.5;}
+  .field input:focus, .field select:focus, .field textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(20,184,166,.15);background:#fff;}
   .lead-card .btn-primary{width:100%;margin-top:6px;padding:15px;font-size:16px;}
   .lead-card .note{font-size:11.5px;color:var(--ink-soft);text-align:center;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:6px;}
   .form-success{display:none;text-align:center;padding:20px 6px;}
