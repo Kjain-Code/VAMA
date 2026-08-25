@@ -4,4 +4,4 @@
     { "source": "/:path*", "has": [{ "type": "host", "value": "hairgfc.vamaclinics.com" }], "destination": "/hair-gfc/:path*" },
     { "source": "/:path*", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/weight-loss/:path*" }
   ]
-}
+}   
