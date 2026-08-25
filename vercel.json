@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/", "has": [{ "type": "host", "value": "hairtransplant.vamaclinics.com" }], "destination": "/hair-transplant" },
+    { "source": "/", "has": [{ "type": "host", "value": "hairgfc.vamaclinics.com" }], "destination": "/hair-gfc" },
+    { "source": "/", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/weight-loss" }
+  ]
+}
