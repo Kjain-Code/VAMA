@@ -7,6 +7,15 @@ export default async function handler(req, res) {
   }
 
   try {
+    if (!process.env.PRIVYR_WEBHOOK_URL) {
+      console.error('Lead API misconfigured: PRIVYR_WEBHOOK_URL env var is not set');
+
+      return res.status(500).json({
+        success: false,
+        message: 'Lead capture is not configured'
+      });
+    }
+
     const { name, phone, city, concern, details, source } = req.body || {};
 
     if (!name || !phone) {

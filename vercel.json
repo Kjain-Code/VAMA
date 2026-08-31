@@ -1,9 +1,14 @@
 {
   "rewrites": [
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "hairtransplant.vamaclinics.com" }], "destination": "/api/:path+" },
     { "source": "/", "has": [{ "type": "host", "value": "hairtransplant.vamaclinics.com" }], "destination": "/hair-transplant" },
     { "source": "/:path+", "has": [{ "type": "host", "value": "hairtransplant.vamaclinics.com" }], "destination": "/hair-transplant/:path+" },
+
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "hairgfc.vamaclinics.com" }], "destination": "/api/:path+" },
     { "source": "/", "has": [{ "type": "host", "value": "hairgfc.vamaclinics.com" }], "destination": "/hair-gfc" },
     { "source": "/:path+", "has": [{ "type": "host", "value": "hairgfc.vamaclinics.com" }], "destination": "/hair-gfc/:path+" },
+
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/api/:path+" },
     { "source": "/", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/weight-loss" },
     { "source": "/:path+", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/weight-loss/:path+" }
   ]

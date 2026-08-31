@@ -198,13 +198,17 @@ if (track && testNext && testPrev) {
 
 
 // ======================================================
-// LEAD FORM -> PRIVYR + WHATSAPP
+// LEAD FORM -> PRIVYR -> THANK YOU PAGE
 // ======================================================
 
 const leadForm = document.getElementById('leadForm');
 
 
 if (leadForm) {
+
+  const submitBtn = leadForm.querySelector('button[type="submit"]');
+  const submitBtnLabel = submitBtn ? submitBtn.textContent : '';
+  const formError = document.getElementById('formError');
 
   leadForm.addEventListener('submit', async (e) => {
 
@@ -229,9 +233,19 @@ if (leadForm) {
       return;
     }
 
+    if (formError) {
+      formError.classList.remove('show');
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+    }
+
 
     // ------------------------------------------
-    // SEND LEAD TO PRIVYR
+    // SEND LEAD TO PRIVYR, THEN GO STRAIGHT TO THE THANK-YOU PAGE
+    // (no WhatsApp pop-up, no extra click needed)
     // ------------------------------------------
 
     try {
@@ -264,69 +278,36 @@ if (leadForm) {
 
 
       if (!response.ok) {
-
-        console.error('Privyr lead submission failed');
-
+        throw new Error('Lead submission failed');
       }
+
+      try {
+        sessionStorage.setItem('vama_lead_name', name);
+        sessionStorage.setItem('vama_lead_phone', phone);
+        sessionStorage.setItem('vama_lead_city', city);
+      } catch (storageError) {
+        // sessionStorage unavailable — thank-you page will just show the generic message
+      }
+
+      window.location.href = 'thank-you.html';
+      return;
 
     } catch (error) {
 
-      console.error('Privyr connection error:', error);
+      console.error('Lead submission error:', error);
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtnLabel;
+      }
+
+      if (formError) {
+        formError.classList.add('show');
+      } else {
+        alert('Something went wrong. Please try again or WhatsApp us at +91 88829 11433.');
+      }
 
     }
-
-
-    // ------------------------------------------
-    // WHATSAPP
-    // ------------------------------------------
-
-    const msg =
-      `Hi VAMA Clinic, I'd like a free weight loss consultation.%0A` +
-      `Name: ${encodeURIComponent(name)}%0A` +
-      `Phone: ${encodeURIComponent(phone)}%0A` +
-      `Preferred clinic: ${encodeURIComponent(city)}%0A` +
-      `Concern: ${encodeURIComponent(concern)}%0A` +
-      `Details: ${encodeURIComponent(details)}`;
-
-
-    const waLink =
-      `https://api.whatsapp.com/send?phone=918882911433&text=${msg}`;
-
-
-    const waConfirmLink =
-      document.getElementById('waConfirmLink');
-
-
-    if (waConfirmLink) {
-
-      waConfirmLink.href = waLink;
-
-    }
-
-
-    const formView =
-      document.getElementById('formView');
-
-    const formSuccess =
-      document.getElementById('formSuccess');
-
-
-    if (formView) {
-
-      formView.style.display = 'none';
-
-    }
-
-
-    if (formSuccess) {
-
-      formSuccess.classList.add('show');
-
-    }
-
-
-    // Open WhatsApp
-    window.open(waLink, '_blank');
 
   });
 
