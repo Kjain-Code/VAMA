@@ -10,6 +10,10 @@
 
     { "source": "/api/:path+", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/api/:path+" },
     { "source": "/", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/weight-loss" },
-    { "source": "/:path+", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/weight-loss/:path+" }
+    { "source": "/:path+", "has": [{ "type": "host", "value": "weightloss.vamaclinics.com" }], "destination": "/weight-loss/:path+" },
+
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "hydrafacial.vamaclinics.com" }], "destination": "/api/:path+" },
+    { "source": "/", "has": [{ "type": "host", "value": "hydrafacial.vamaclinics.com" }], "destination": "/hydrafacial" },
+    { "source": "/:path+", "has": [{ "type": "host", "value": "hydrafacial.vamaclinics.com" }], "destination": "/hydrafacial/:path+" }
   ]
 }
