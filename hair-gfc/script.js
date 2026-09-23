@@ -193,17 +193,15 @@ if (leadForm) {
     const phoneElement = document.getElementById('lf-phone');
     const cityElement = document.getElementById('lf-city');
     const concernElement = document.getElementById('lf-concern');
-    const detailsElement = document.getElementById('lf-details');
 
 
     const name = nameElement ? nameElement.value.trim() : '';
     const phone = phoneElement ? phoneElement.value.trim() : '';
     const city = cityElement ? cityElement.value : '';
     const concern = concernElement ? concernElement.value : '';
-    const details = detailsElement ? detailsElement.value.trim() : '';
 
 
-    if (!name || !phone || !city || !concern || !details) {
+    if (!name || !phone || !city || !concern) {
       return;
     }
 
@@ -237,7 +235,6 @@ if (leadForm) {
           phone: phone,
           city: city,
           concern: concern,
-          details: details,
           source: 'GFC Landing Page'
         })
 
