@@ -276,7 +276,7 @@
   .expert-band .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center;position:relative;}
   @media(max-width:860px){.expert-band .wrap{grid-template-columns:1fr;}}
   .expert-photo{border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);}
-  .expert-photo img{width:100%;object-fit:cover;}
+  .expert-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 60%;display:block;}
   .expert-copy .eyebrow{color:var(--gold-light);}
   .expert-copy .eyebrow::before{background:var(--gold-light);}
   .expert-copy h2{color:#fff;font-size:clamp(24px,3vw,34px);margin:12px 0 16px;}
