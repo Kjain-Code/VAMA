@@ -81,6 +81,7 @@
   header.scrolled{box-shadow:0 8px 24px -18px rgba(13,63,61,.4);}
   .nav-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
   .logo-block{display:flex;align-items:center;}
+  .logo-block a{display:flex;}
   .logo-img{height:46px;width:auto;object-fit:contain;flex-shrink:0;}
   @media(max-width:480px){.logo-img{height:38px;}}
   .header-cta{display:flex;align-items:center;gap:14px;}
