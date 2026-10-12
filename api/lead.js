@@ -25,9 +25,13 @@ export default async function handler(req, res) {
       });
     }
 
+    // Privyr needs the country code for call/WhatsApp buttons to work
+    const digits = String(phone).replace(/\D/g, '');
+    const fullPhone = digits.length === 10 ? `+91${digits}` : (String(phone).startsWith('+') ? String(phone) : `+${digits}`);
+
     const payload = {
       name: name,
-      phone: phone,
+      phone: fullPhone,
       display_name: name,
       notes: `Preferred clinic: ${city || 'Not specified'} | Concern: ${concern || 'Not specified'} | Details: ${details || 'Not specified'}`,
       source: source || 'VAMA Landing Page',
