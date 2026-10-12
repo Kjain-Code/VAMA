@@ -52,6 +52,11 @@ export default async function handler(req, res) {
 
     const result = await response.text();
 
+    // Debug: shows in Vercel Logs which webhook was used and what Privyr replied
+    const hookTail = process.env.PRIVYR_WEBHOOK_URL.split('/').slice(-2).join('/');
+    console.log('Privyr webhook used: .../' + hookTail, '| status:', response.status, '| reply:', result.slice(0, 500));
+    console.log('Payload sent:', JSON.stringify(payload));
+
     if (!response.ok) {
       console.error('Privyr error:', response.status, result);
 
