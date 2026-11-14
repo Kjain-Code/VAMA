@@ -66,11 +66,11 @@
   .reveal-stagger > *:nth-child(6){transition-delay:.43s;}
 
   /* ===== TOP UTILITY BAR ===== */
-  .util-bar{background:var(--teal-deep);color:#EAF4F2;font-size:13px;padding:8px 0;}
-  .util-bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+  .util-bar{background:var(--teal-deep);color:#EAF4F2;font-size:11px;line-height:1.35;padding:4px 0;}
+  .util-bar .wrap{display:block;}
   .util-bar a{opacity:.9;display:inline-flex;align-items:center;gap:6px;}
   .util-bar a:hover{opacity:1;color:var(--gold-light);}
-  .util-left{display:flex;gap:20px;flex-wrap:wrap;}
+  .util-left{display:block;}
   .stars{color:var(--gold);letter-spacing:1px;}
 
   /* ===== HEADER ===== */
