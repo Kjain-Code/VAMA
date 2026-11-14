@@ -16,6 +16,10 @@
     { "source": "/", "has": [{ "type": "host", "value": "hydrafacial.vamaclinics.com" }], "destination": "/hydrafacial" },
     { "source": "/:path+", "has": [{ "type": "host", "value": "hydrafacial.vamaclinics.com" }], "destination": "/hydrafacial/:path+" },
 
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "pigmentation.vamaclinics.com" }], "destination": "/api/:path+" },
+    { "source": "/", "has": [{ "type": "host", "value": "pigmentation.vamaclinics.com" }], "destination": "/pigmentation" },
+    { "source": "/:path+", "has": [{ "type": "host", "value": "pigmentation.vamaclinics.com" }], "destination": "/pigmentation/:path+" },
+
     { "source": "/api/:path+", "has": [{ "type": "host", "value": "lhr.vamaclinics.com" }], "destination": "/api/:path+" },
     { "source": "/", "has": [{ "type": "host", "value": "lhr.vamaclinics.com" }], "destination": "/laser-hair-reduction" },
     { "source": "/:path+", "has": [{ "type": "host", "value": "lhr.vamaclinics.com" }], "destination": "/laser-hair-reduction/:path+" }
