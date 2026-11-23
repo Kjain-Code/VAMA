@@ -22,6 +22,22 @@
 
     { "source": "/api/:path+", "has": [{ "type": "host", "value": "lhr.vamaclinics.com" }], "destination": "/api/:path+" },
     { "source": "/", "has": [{ "type": "host", "value": "lhr.vamaclinics.com" }], "destination": "/laser-hair-reduction" },
-    { "source": "/:path+", "has": [{ "type": "host", "value": "lhr.vamaclinics.com" }], "destination": "/laser-hair-reduction/:path+" }
+    { "source": "/:path+", "has": [{ "type": "host", "value": "lhr.vamaclinics.com" }], "destination": "/laser-hair-reduction/:path+" },
+
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "carbonfacial.vamaclinics.com" }], "destination": "/api/:path+" },
+    { "source": "/", "has": [{ "type": "host", "value": "carbonfacial.vamaclinics.com" }], "destination": "/carbon-facial" },
+    { "source": "/:path+", "has": [{ "type": "host", "value": "carbonfacial.vamaclinics.com" }], "destination": "/carbon-facial/:path+" },
+
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "smp.vamaclinics.com" }], "destination": "/api/:path+" },
+    { "source": "/", "has": [{ "type": "host", "value": "smp.vamaclinics.com" }], "destination": "/smp-treatment" },
+    { "source": "/:path+", "has": [{ "type": "host", "value": "smp.vamaclinics.com" }], "destination": "/smp-treatment/:path+" },
+
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "bbglow.vamaclinics.com" }], "destination": "/api/:path+" },
+    { "source": "/", "has": [{ "type": "host", "value": "bbglow.vamaclinics.com" }], "destination": "/bb-glow" },
+    { "source": "/:path+", "has": [{ "type": "host", "value": "bbglow.vamaclinics.com" }], "destination": "/bb-glow/:path+" },
+
+    { "source": "/api/:path+", "has": [{ "type": "host", "value": "cryo.vamaclinics.com" }], "destination": "/api/:path+" },
+    { "source": "/", "has": [{ "type": "host", "value": "cryo.vamaclinics.com" }], "destination": "/cryo-treatment" },
+    { "source": "/:path+", "has": [{ "type": "host", "value": "cryo.vamaclinics.com" }], "destination": "/cryo-treatment/:path+" }
   ]
 }
