@@ -276,3 +276,55 @@ if (leadForm) {
   });
 
 }
+
+// ======================================================
+// VAMA-V2 — navbar: mobile menu, active section, scroll progress
+// ======================================================
+(function () {
+  const hdr = document.getElementById('siteHeader');
+  const nav = document.getElementById('mainNav');
+  const toggle = document.getElementById('navToggle');
+  const progress = document.getElementById('scrollProgress');
+
+  const closeMenu = () => {
+    if (!hdr || !toggle) return;
+    hdr.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  };
+
+  if (hdr && nav && toggle) {
+    toggle.addEventListener('click', () => {
+      const open = hdr.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    document.addEventListener('click', e => { if (!hdr.contains(e.target)) closeMenu(); });
+  }
+
+  const links = nav ? Array.from(nav.querySelectorAll('a[href^="#"]')) : [];
+  const sections = links
+    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+    .filter(Boolean);
+
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const doc = document.documentElement;
+    const max = (doc.scrollHeight - doc.clientHeight) || 1;
+    if (progress) progress.style.transform = 'scaleX(' + Math.min(1, window.scrollY / max) + ')';
+
+    const offset = (hdr ? hdr.offsetHeight : 80) + 40;
+    let current = '';
+    sections.forEach(s => { if (s.getBoundingClientRect().top <= offset) current = s.id; });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', () => { if (window.innerWidth > 980) closeMenu(); update(); });
+  update();
+})();

@@ -26,6 +26,7 @@
       'currency': 'INR'
   });
 </script>
+<!-- VAMA-V2 -->
 </head>
 <body>
 
@@ -42,11 +43,20 @@
     <div class="logo-block">
       <a href="https://vamaclinics.com/" target="_blank" rel="noopener" aria-label="Visit VAMA Clinics website"><img src="logo.webp" alt="VAMA Advanced Skin Clinic" class="logo-img"></a>
     </div>
+    <nav class="main-nav" id="mainNav" aria-label="Page sections">
+      <a href="index.html#results">Results</a>
+      <a href="index.html#why-vama">Why VAMA</a>
+      <a href="index.html#journey">Treatment Journey</a>
+      <a href="index.html#locations">Clinics</a>
+      <a href="index.html#faq">FAQs</a>
+    </nav>
     <div class="header-cta">
-      <a href="tel:+918882911433" class="phone-pill"><span class="dot"></span><span>+91 88829 11433</span></a>
-      <a href="index.html" class="btn btn-primary"><span class="long">Back to Home</span></a>
+      <a href="tel:+918882911433" class="phone-pill" aria-label="Call +91 88829 11433"><span class="dot"></span><span>+91 88829 11433</span></a>
+      <a href="index.html" class="btn btn-primary"><span class="long">Back to Home</span><span class="short">Home</span></a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
 </header>
 
 <section class="ty-hero">
